@@ -4,51 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversor de moneda</title>
+    <title>Document</title>
 </head>
 <body>
-    <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
 
-    <label> Introduzca el valor: </label><br /><br />
-    
-    <input type="text" name="moneda"/> <br /> <br />   
-           
-        <label> Selecciona tu moneda:          
-        <select name="monedas">           
-            
-            <option value="dolar">Dolar</option>
-            <option value="euro">Euro</option>
-            <option value="libra">Libra</option>
-            <option value="rupia">Rupia</option>
-            <option value="yuan">Yuan</option>
-            <option value="rublo">Rublo</option>
-            
-        </select>
-        </label> <br />
-        
-        <label> Selecciona la moneda que requieres:
-    
-        <select name="divisas">             
-            
-            <option value="dol">Dolar</option>
-            <option value="eur">Euro</option>
-            <option value="lib">Libra</option>
-            <option value="rup">Rupia</option>
-            <option value="yu">Yuan</option>
-            <option value="rub">Rublo</option>
-            
-        </select>
-        </label> <br /> <br />
-        
-        <input type="submit" value="Convertir">  
-        <input type="reset" value="Reiniciar"> 
-    </form>
+<form action="<?php echo $_SERVER ['PHP_SELF'];?>" method="post">
+
+    <label for="num1">Introduce el primer número</label>
+    <input type="number" name="num1"/>
+    </p>
+    <label for="num2">Introduce el segundo número</label>
+    <input type="number" name="num2"/>
+    </p>
+    <input type="submit" value="Sumar" name="sumar"/>
+    <input type="submit" value="Restar" name="restar"/>
+    <input type="submit" value="Multiplicar" name="multiplicar"/>
+    <input type="submit" value="Dividir" name="dividir"/>
+
+</form>
 
     <?php
-
-        $mon=$_POST['moneda'];
-        $div=$_POST['divisas'];
+    error_reporting(E_ERROR);
+    //Escribe un programa que sume, reste, multiplique y divida dos números introducidos por teclado.
         
+        if (!isset($_POST['num1']) && !isset($_POST['num2'])) {
+            echo "<p>Tienes que introducir los números</p>";
+        }
+
+        $num1 = $_POST['num1'];
+        $num2 = $_POST['num2'];
+
+        $suma = $num1 + $num2;
+        $resta = $num1 - $num2;
+        $multiplicar = $num1 * $num2;
+        $dividir = $num1 / $num2;
+
+        if (isset($_POST['sumar'])) {
+            echo "<p> La suma da ".$suma." como resultado</p>";
+        }
+        
+        if (isset($_POST['restar'])) {
+            echo "<p> La resta da ".$resta." como resultado</p>";
+   
+        }
+
+        if (isset($_POST['multiplicar'])) {
+            echo "<p> La multiplicación da ".$multiplicar." como resultado</p>";    
+    
+        }
+        
+        if (isset($_POST['dividir'])) {
+            echo "<p> La división da ".$dividir." como resultado</p>";
+
+        }
 
     ?>
 
