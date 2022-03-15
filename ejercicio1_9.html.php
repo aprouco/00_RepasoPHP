@@ -49,7 +49,7 @@
         $rublos_yuan=$num*0.057;
         $yuan_euros=$num*0.14;
         $yuan_dolares=$num*0.16;
-        $yuan_rublos=$num*17.60;
+        $yuan_rublos=$num*17.64;
 
 
         ######EUROS######
