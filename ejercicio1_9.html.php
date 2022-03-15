@@ -18,10 +18,9 @@
                 <option value="rublo_select">Rublo</option>
                 <option value="yuan_select">Yuan</option>
         </p>
-        
-        <label for="num">Introduce el valor: </label>
-    
+   
         <input type="text" name="num"/>
+
         </p>
         <input type="submit" value="euros" name="euros"/>
         <input type="submit" value="dolares" name="dolares"/>
@@ -34,9 +33,9 @@
     error_reporting(E_ERROR);
     //Escribe un programa que sume, reste, multiplique y divida dos números introducidos por teclado.
         
-        $num=$_POST['num'];
-        $moneda = $_POST['moneda'];
-        $moneda_seleccionada=$_POST['moneda_seleccionada'];
+        $num=intval($_POST['num']);
+        $moneda=$_POST['moneda_seleccionada'];
+     
 
         $euros_dolares=$num*1.10;
         $euros_rublos=$num*123.69;
@@ -56,11 +55,11 @@
 
         echo "<p>";
         if (isset($_POST['euros'])) {
-            if (($_POST['moneda_seleccionada'] = 'euros') && ($_POST['moneda'] = 'dolares')) {
+            if ($moneda == 'dolar_select') {
                 echo $dolares_euros;
-            }elseif (($_POST['moneda_seleccionada'] = 'euros') && ($_POST['moneda'] = 'rublos')) {
+            }elseif ($moneda == 'rublo_select') {
                 echo $rublos_euros;
-            }elseif (($_POST['moneda_seleccionada'] = 'euros') && ($_POST['moneda'] = 'yuan')) {
+            }elseif ($moneda == 'yuan_select') {
                 echo $yuan_euros;
             }
         }
@@ -69,11 +68,11 @@
         ######DOLARES######
 
         if (isset($_POST['dolares'])) {
-            if (($_POST['moneda_seleccionada'] = 'dolares') && ($_POST['moneda'] = 'euros')) {
+            if ($moneda == 'euro_select') {
                 echo $euros_dolares;
-            }elseif (($_POST['moneda_seleccionada'] = 'dolares') && ($_POST['moneda'] = 'rublos')) {
+            }elseif ($moneda == 'rublo_select') {
                 echo $rublos_dolares;
-            }elseif (($_POST['moneda_seleccionada'] = 'dolares') && ($_POST['moneda'] = 'yuan')) {
+            }elseif ($moneda == 'yuan_select') {
                 echo $yuan_dolares;
             }
    
@@ -82,11 +81,11 @@
         ######RUBLOS######
 
         if (isset($_POST['rublos'])) {
-            if (($_POST['moneda_seleccionada'] = 'rublos') && ($_POST['moneda'] = 'euros')) {
+            if ($moneda == 'euro_select') {
                 echo $euros_rublos;
-            }elseif (($_POST['moneda_seleccionada'] = 'rublos') && ($_POST['moneda'] = 'dolares')) {
+            }elseif ($moneda == 'dolar_select') {
                 echo $dolares_rublos;
-            }elseif (($_POST['moneda_seleccionada'] = 'rublos') && ($_POST['moneda'] = 'yuan')) {
+            }elseif ($moneda == 'yuan_select') {
                 echo $yuan_rublos;
             }
    
@@ -95,11 +94,11 @@
         ######YUAN######
 
         if (isset($_POST['yuan'])) {
-            if (($_POST['moneda_seleccionada'] = 'yuan') && ($_POST['moneda'] = 'euros')) {
+            if ($moneda == 'euro_select') {
                 echo $euros_yuan;
-            }elseif (($_POST['moneda_seleccionada'] = 'yuan') && ($_POST['moneda'] = 'rublos')) {
+            }elseif ($moneda == 'rublo_select') {
                 echo $rublos_yuan;
-            }elseif (($_POST['moneda_seleccionada'] = 'yuan') && ($_POST['moneda'] = 'dolares')) {
+            }elseif ($moneda == 'dolar_select') {
                 echo $dolares_yuan;
             }
    
