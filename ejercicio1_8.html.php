@@ -24,6 +24,7 @@
 </form>
 
     <?php
+    ############################---------------------CALCULADORA---------------------############################
     error_reporting(E_ERROR);
     //Escribe un programa que sume, reste, multiplique y divida dos números introducidos por teclado.
         
